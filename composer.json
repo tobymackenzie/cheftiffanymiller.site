@@ -1,0 +1,17 @@
+{
+	"name": "tjm/cheftiffanymiller.com.site"
+	,"type": "project"
+
+	,"extra": {
+		"wordpress-install-dir": "vendor/wordpress"
+	}
+	,"repositories": [
+		{
+			"type": "composer"
+			,"url": "https://wpackagist.org"
+		}
+	]
+	,"require": {
+		"johnpbloch/wordpress": "^5.0"
+	}
+}
