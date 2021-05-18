@@ -17,6 +17,11 @@ Header always set X-Content-Type-Options 'nosniff'
 <IfModule mod_rewrite.c>
 	RewriteEngine On
 
+	##==canonical domain
+	#-! temporarily 302 until decision on yes or no www is final
+	RewriteCond %{HTTP_HOST} ^.+\.cheftiffanymiller\.com$ [NC]
+	RewriteRule ^ %{REQUEST_SCHEME}://cheftiffanymiller.com%{QUERY_STRING} [L,R=302,QSA]
+
 	##==maintenance
 	#-! show maintenance until we go live with wordpress
 	RewriteCond %{HTTP_COOKIE} !^(.*;)?\ ?huiEUYhj=38AJHiewhsd\ ?(;.*)?$
