@@ -2,15 +2,19 @@
 require_once(__DIR__ . '/local.php');
 
 //==project
+define('CANONICAL_DOMAIN', 'cheftiffanymiller.com');
+define('SITE_DOMAIN', (isset($_SERVER['SERVER_NAME']) && $_SERVER['SERVER_NAME'] ? $_SERVER['SERVER_NAME'] : CANONICAL_DOMAIN));
 define('PROJECT_PATH', realpath(__DIR__ . '/..'));
-define('WEBROOT_URL', (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] ? 'https' : 'http') . '://' . (isset($_SERVER['SERVER_NAME']) && $_SERVER['SERVER_NAME'] ? $_SERVER['SERVER_NAME'] : 'cheftiffanymiller.com'));
+define('WEBROOT_URL', (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] ? 'https' : 'http') . '://' . SITE_DOMAIN);
 
 //==wordpress
 $table_prefix = 'wp_';
 define('ADMIN_COOKIE_PATH', '/');
 define('DB_CHARSET', 'utf8');
 // define('DB_COLLATE', '');
-define('WP_DEBUG', true);
+if(!defined('WP_DEBUG')){
+	define('WP_DEBUG', false);
+}
 define('WP_CONTENT_DIR', PROJECT_PATH . '/www/_content');
 define('WP_CONTENT_URL', WEBROOT_URL . '/_content');
 define('WP_HOME', WEBROOT_URL);
