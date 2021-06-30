@@ -19,11 +19,13 @@ Header always set X-Content-Type-Options 'nosniff'
 
 	##==canonical domain
 	#-! temporarily 302 until decision on yes or no www is final
+	RewriteCond %{REQUEST_URI} !^/?\.well-known
 	RewriteCond %{HTTP_HOST} ^.+\.cheftiffanymiller\.com$ [NC]
 	RewriteRule ^ %{REQUEST_SCHEME}://cheftiffanymiller.com%{QUERY_STRING} [L,R=302,QSA]
 
 	##==maintenance
 	#-! show maintenance until we go live with wordpress
+	RewriteCond %{REQUEST_URI} !^/?\.well-known
 	RewriteCond %{HTTP_COOKIE} !^(.*;)?\ ?huiEUYhj=38AJHiewhsd\ ?(;.*)?$
 	RewriteCond %{ENV:REDIRECT_STATUS} !=503
 	RewriteCond %{REQUEST_URI} !^/?t1f4n3/?$
