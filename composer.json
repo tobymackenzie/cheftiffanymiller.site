@@ -3,7 +3,10 @@
 	,"type": "project"
 
 	,"extra": {
-		"wordpress-install-dir": "vendor/wordpress"
+		"installer-paths": {
+			"vendor/wpackagist-plugin/{$name}": ["type:wordpress-plugin"]
+		}
+		,"wordpress-install-dir": "vendor/wordpress"
 	}
 	,"repositories": [
 		{
