@@ -25,13 +25,13 @@ Header always set X-Content-Type-Options 'nosniff'
 
 	##==maintenance
 	#-! show maintenance until we go live with wordpress
-	RewriteCond %{REQUEST_URI} !^/?\.well-known
-	RewriteCond %{HTTP_COOKIE} !^(.*;)?\ ?huiEUYhj=38AJHiewhsd\ ?(;.*)?$
-	RewriteCond %{ENV:REDIRECT_STATUS} !=503
-	RewriteCond %{REQUEST_URI} !^/?t1f4n3/?$
-	RewriteRule ^ - [L,R=503]
+	#RewriteCond %{REQUEST_URI} !^/?\.well-known
+	#RewriteCond %{HTTP_COOKIE} !^(.*;)?\ ?huiEUYhj=38AJHiewhsd\ ?(;.*)?$
+	#RewriteCond %{ENV:REDIRECT_STATUS} !=503
+	#RewriteCond %{REQUEST_URI} !^/?t1f4n3/?$
+	#RewriteRule ^ - [L,R=503]
 	ErrorDocument 503 /_maintenance.html
-	Header Set Cache-Control "max-age=0, no-store"
+	#Header Set Cache-Control "max-age=0, no-store"
 
 	##==block admin access to others
 	#--set cookie on live site
@@ -58,7 +58,7 @@ Header always set X-Content-Type-Options 'nosniff'
 
 	##===serve wordpress for other URLs
 	#-! block unless cookie is set until we go live with wordpress
-	RewriteCond %{HTTP_COOKIE} ^(.*;)?\ ?huiEUYhj=38AJHiewhsd\ ?(;.*)?$
+	#RewriteCond %{HTTP_COOKIE} ^(.*;)?\ ?huiEUYhj=38AJHiewhsd\ ?(;.*)?$
 	RewriteRule ^ /_wp/index.php [END]
 </IfModule>
 
