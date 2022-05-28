@@ -15,7 +15,7 @@
 		}
 	]
 	,"require": {
-		"johnpbloch/wordpress": "^5"
+		"johnpbloch/wordpress": "^6"
 		,"wpackagist-plugin/contact-form-7": "^5"
 		,"wpackagist-plugin/ml-slider": "^3"
 		,"wpackagist-plugin/wp-mail-smtp": "^3"
